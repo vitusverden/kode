@@ -1,0 +1,54 @@
+.vColumn {
+    border: 2px solid red;
+    text-align: center; 
+    
+}
+table {
+  text-align: center;
+}
+tr.vColumns {
+  height: 75px;
+}
+
+.vColumns {
+  color: red;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+html { /* kopieret fra codepen*/
+    animation: colorchange 25s; /* animation-name followed by duration in seconds*/
+       /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 25s; /* Chrome and Safari */
+    animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+  }
+
+  @keyframes colorchange
+  {
+    0%   {background: green;}
+    50%  {background: blue;}
+    100%  {background: green;}
+  }
+
+  @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+  {
+    0%   {background: green;}
+    50%  {background: blue;}
+    100%  {background: green;}
+  }
+
+
+body {
+    position: relative;
+}
+
+#submit-box, #staff-box, #staff-veri-box {
+    position: absolute;
+    max-width: 900px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+}
