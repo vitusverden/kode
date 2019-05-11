@@ -29,6 +29,7 @@
             backgroundColor = backgroundcolor
             canv = document.getElementById("gc");
             ctx = canv.getContext("2d");
+            canv.addEventListener("mousemove",mouseMove);
 
             // start game loop
             setInterval(game,1000/15);

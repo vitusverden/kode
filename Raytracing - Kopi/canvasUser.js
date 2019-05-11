@@ -5,6 +5,10 @@ window.onload=function() {
 var lightsourceX = 500;
 var lightsourceY = 250;
 var points = [];
+function mouseMove(evt) {
+  lightsourceX = evt.x
+  lightsourceY = evt.y
+}
 function update() {
     for (let i = 0; i < lines.length; i++) {
         deleteLine(lines[i])
