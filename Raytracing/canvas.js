@@ -18,6 +18,11 @@
         var linesy1 = [];
         var linesx2 = [];
         var linesy2 = [];
+        var lines2 = [];
+        var linesx12 = [];
+        var linesy12 = [];
+        var linesx22 = [];
+        var linesy22 = [];
 
         /***************************************************************
          *
@@ -240,6 +245,107 @@
             let index = lines.indexOf(name);
             if(index != -1) {
                 linesy2[index] = setTo
+                return "done"
+            } else {
+                return "does not exist"
+            }
+        }
+
+
+
+        function createLine2(name, x1, y1, x2, y2) {
+            lines2.push(name);
+            linesx12.push(x1);
+            linesy12.push(y1);
+            linesx22.push(x2);
+            linesy22.push(y2);
+        }
+
+        function deleteLine2(name) {
+            let index = lines2.indexOf(name)
+            if(index != -1) {
+                lines2.splice(index, 1)
+                linesx12.splice(index, 1)
+                linesy12.splice(index, 1)
+                linesx22.splice(index, 1)
+                linesy22.splice(index, 1)
+                return "done"
+            } else {
+                return "does not exist"
+            }
+            
+        }
+
+        function getY1PositionOfLine2(name) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                return linesy12[index]
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function getX1PositionOfLine2(name) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                return linesx12[index]
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function getY2PositionOfLine2(name) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                return linesy22[index]
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function getX2PositionOfLine2(name) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                return linesx22[index]
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function setX1PositionOfLine2(name, setTo) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                linesx12[index] = setTo
+                return "done"
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function setY1PositionOfLine2(name, setTo) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                linesy12[index] = setTo
+                return "done"
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function setX2PositionOfLine2(name, setTo) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                linesx22[index] = setTo
+                return "done"
+            } else {
+                return "does not exist"
+            }
+        }
+
+        function setY2PositionOfLine2(name, setTo) {
+            let index = lines2.indexOf(name);
+            if(index != -1) {
+                linesy22[index] = setTo
                 return "done"
             } else {
                 return "does not exist"
