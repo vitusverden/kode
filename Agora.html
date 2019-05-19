@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://sigmaclient.info/agora/ -->
+<html><div id="bm-2225254214"><div data-reactroot="" id="bm-2225254214"></div></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Agora</title>
+<link rel="stylesheet" href="./Agora_files/bootstrap.min.css">
+<link rel="stylesheet" href="./Agora_files/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script src="./Agora_files/api.js.download" crossorigin="anonymous"></script>
+<script src="./Agora_files/mustache.min.js.download" integrity="sha384-CshXe6yvzsA+7Kb1fIvMqPlkkvLeelv3nspH/zUR748NqOUfTBHQbcS6ZZp0r0yN" crossorigin="anonymous"></script>
+<style>
+        html, body {
+            height: 100%;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #e0e0e0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: black;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            color: black;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #454545;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 30px;
+            margin-left: 50px;
+        }
+
+        .sidenav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidenav ul li {
+            border-top: 1px solid #333333;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav ul li {
+                font-size: 18px;
+            }
+        }
+
+        .messages {
+            background-color: #eeeeee;
+            padding-left: 5px;
+            padding-right: 5px;
+            overflow-y: scroll;
+            height: 100%;
+            /*padding-top: 45px;
+            margin-bottom: 60px;*/
+        }
+
+        .header {
+            /*padding-left: 5px;
+            position: fixed;*/
+            background-color: white;
+            height: 45px;
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .footer {
+            /*position: fixed;*/
+            background-color: white;
+            width: 99%;
+            height: 100px;
+            bottom: 0px;
+        }
+
+        .footer textarea {
+            width: 100%;
+        }
+
+        .line {
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .opened {
+            width: 250px;
+        }
+
+        @media screen and (min-width: 750px) {
+            .content {
+                margin-left: 250px;
+                margin-right: 250px;
+            }
+
+            .sidenav {
+                width: 250px;
+            }
+
+            #members {
+                float: right;
+                position: fixed;
+                z-index: 1;
+                right: 0;
+                left: auto;
+            }
+
+            .sidenav .closebtn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="" style="">
+<div class="content">
+<div class="header">
+<span style="font-size:30px;cursor:pointer; position: absolute; left: 5px;" onclick="openChannels()">☰</span>
+<span style="font-size:30px;cursor:pointer; position: absolute; left: 35px;" onclick="openMembers()">☰</span>
+Agora
+</div>
+<div id="messages" class="messages">
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557936937000)">Daawn</b> <span class="line">?
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557936945000)">Daawn</b> <span class="line">Hello
+Daawn Hello
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557936955000)">Daawn</b> <span class="line">nvm
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;NickName&#39;, &#39;Premium&#39;, 1557936964000)">NickName</b> <span class="line">Hello
+NickName Hello
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557936978000)">Daawn</b> <span class="line">nah
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;NickName&#39;, &#39;Premium&#39;, 1557937039000)">NickName</b> <span class="line">Can't chat for mobile?
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937050000)">Daawn</b> <span class="line">It's getting patched I think
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937462000)">Daawn</b> <span class="line">NO
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;xTrM1&#39;, &#39;Mod&#39;, 1557937528000)">xTrM1</b> <span class="line">test
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937538000)">Daawn</b> <span class="line">hi
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;xTrM1&#39;, &#39;Mod&#39;, 1557937541000)">xTrM1</b> <span class="line">o-o
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937546000)">Daawn</b> <span class="line">
+hihi
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937554000)">Daawn</b> <span class="line">
+test3
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937565000)">DreamHax</b> <span class="line">Time to chat bos
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937567000)">DreamHax</b> <span class="line">boys*
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937571000)">DreamHax</b> <span class="line">/
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937583000)">Daawn</b> <span class="line">Yeah but
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937588000)">Daawn</b> <span class="line">people are not online
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937605000)">Daawn</b> <span class="line">Miniman, never heard of him
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937607000)">DreamHax</b> <span class="line">oh
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937608000)">Daawn</b> <span class="line">Hello!!!! o/
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937618000)">DreamHax</b> <span class="line">allo
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937621000)">DreamHax</b> <span class="line">@everyone
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557937622000)">Omikron</b> <span class="line">yo
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937624000)">DreamHax</b> <span class="line">lol
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557937630000)">Omikron</b> <span class="line">OMG why did you ping everyone?
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937647000)">Daawn</b> <span class="line">Can we fix that color or something
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937648000)">DreamHax</b> <span class="line">does that actually work
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937648000)">AragonArts</b> <span class="line">lol
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937650000)">Daawn</b> <span class="line">I can't read the text
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937652000)">Daawn</b> <span class="line">xDDD
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937659000)">AragonArts</b> <span class="line">are we really getting trigered for being pinged in the agora?
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937660000)">Daawn</b> <span class="line">dat yellow
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937671000)">DreamHax</b> <span class="line">@here
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937674000)">AragonArts</b> <span class="line">That yello is cancer
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937685000)">Daawn</b> <span class="line">o.OOOOOOOOOO
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937695000)">Daawn</b> <span class="line">@everyone
+@here
+</span>
+        </div>
+        <div>
+            <b style="color: #e0a802;" onclick="showMessageDialog(&#39;DreamHax&#39;, &#39;Youtuber&#39;, 1557937696000)">DreamHax</b> <span class="line">does @everyone even do anything @Omikron
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557937697000)">Omikron</b> <span class="line">add a suggestion: change the yellow
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937707000)">AragonArts</b> <span class="line">or
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937710000)">AragonArts</b> <span class="line">i inject my own css
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557937711000)">Omikron</b> <span class="line">it diesn't do anything I just wanted to trigger you haha
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937715000)">AragonArts</b> <span class="line">and make it darkmode
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937717000)">AragonArts</b> <span class="line">problem solved
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557937732000)">LeakedPvP</b> <span class="line">ey
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937733000)">Daawn</b> <span class="line">whATtittisccSSsSSsS??S?S
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937736000)">Daawn</b> <span class="line">jk
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937740000)">AragonArts</b> <span class="line">waddup Licked PVP
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937779000)">AragonArts</b> <span class="line">maybe one day
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937781000)">AragonArts</b> <span class="line">the agora
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937786000)">AragonArts</b> <span class="line">will become a discord like program
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937792000)">AragonArts</b> <span class="line">that would function like discord
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557937796000)">LeakedPvP</b> <span class="line">test
+test2
+
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557937800000)">LeakedPvP</b> <span class="line">hax
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937806000)">AragonArts</b> <span class="line">oooh
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937807000)">AragonArts</b> <span class="line">faancy
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;xTrM1&#39;, &#39;Mod&#39;, 1557937809000)">xTrM1</b> <span class="line">i hax 2
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937814000)">AragonArts</b> <span class="line">/me hm
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;AragonArts&#39;, &#39;Premium&#39;, 1557937818000)">AragonArts</b> <span class="line">cmds?
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557937835000)">Omikron</b> <span class="line">Leakedpvp you are ingame?
+</span>
+        </div>
+        <div>
+            <b style="color: #0065ff;" onclick="showMessageDialog(&#39;Daawn&#39;, &#39;Mod&#39;, 1557937852000)">Daawn</b> <span class="line">asdfaskdfasdfasf
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557937946000)">LeakedPvP</b> <span class="line">no
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557937978000)">LeakedPvP</b> <span class="line">now i am
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557938221000)">LeakedPvP</b> <span class="line">test
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938223000)">vitusverden</b> <span class="line">Anyone i can use to test something?
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938232000)">vitusverden</b> <span class="line">i thing i have found a exploit
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938236000)">vitusverden</b> <span class="line">an*
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938248000)">vitusverden</b> <span class="line">another exploit...
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;NickName&#39;, &#39;Premium&#39;, 1557938248000)">NickName</b> <span class="line">and mobile bug
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;Omikron&#39;, &#39;Owner&#39;, 1557938250000)">Omikron</b> <span class="line">merde conftionne pas Leakedpvp
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938255000)">vitusverden</b> <span class="line">Nickname, can i use you?
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;NickName&#39;, &#39;Premium&#39;, 1557938264000)">NickName</b> <span class="line">just keep enter
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938272000)">vitusverden</b> <span class="line">not working
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;NickName&#39;, &#39;Premium&#39;, 1557938285000)">NickName</b> <span class="line">i don't know
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557938286000)">LeakedPvP</b> <span class="line">test
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938356000)">vitusverden</b> <span class="line">
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938362000)">vitusverden</b> <span class="line">
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557938470000)">LeakedPvP</b> <span class="line">
+</span>
+        </div>
+        <div>
+            <b style="color: #f2ff00;" onclick="showMessageDialog(&#39;LeakedPvP&#39;, &#39;Owner&#39;, 1557938794000)">LeakedPvP</b> <span class="line">Test
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;vitusverden&#39;, &#39;Premium&#39;, 1557938814000)">vitusverden</b> <span class="line">t
+</span>
+        </div>
+        <div>
+            <b style="color: #f700ce;" onclick="showMessageDialog(&#39;ZasCool1423&#39;, &#39;Premium&#39;, 1557938858000)">ZasCool1423</b> <span class="line">bOi
+</span>
+        </div>
+</div>
+<div class="footer">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<textarea id="text"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div id="channels" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeChannels()">×</a>
+    <ul>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;announcement&#39;)">announcement</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;staff-announcement&#39;)">staff-announcement</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;good-servers-to-hack-on&#39;)">good-servers-to-hack-on</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;rules&#39;)">rules</a>
+            </li>
+            <li>
+                <b><a href="javascript:void(0)" onclick="showChannel(&#39;global-1&#39;)">global-1</a></b>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;global-2&#39;)">global-2</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-fr&#39;)">general-fr</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-en&#39;)">general-en</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-cn&#39;)">general-cn</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-ger&#39;)">general-ger</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-esp&#39;)">general-esp</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-vt&#39;)">general-vt</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-du&#39;)">general-du</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-ru&#39;)">general-ru</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-kr&#39;)">general-kr</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-it&#39;)">general-it</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;general-tu&#39;)">general-tu</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;help&#39;)">help</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;media&#39;)">media</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;config&#39;)">config</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;alts&#39;)">alts</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;suggestions&#39;)">suggestions</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;bug-report&#39;)">bug-report</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;partner-alts&#39;)">partner-alts</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="showChannel(&#39;premium&#39;)">premium</a>
+            </li>
+    </ul>
+</div>
+<div id="members" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMembers()">×</a>
+    <ul>
+            <li>
+                <span style="color: #f2ff00;">Owner - 2</span>
+                <ul style="padding-left: 15px;">
+                    <li onclick="showUser(&#39;LeakedPvP&#39;, &#39;Owner&#39;)">
+                        IG LeakedPvP
+                    </li>
+                    <li onclick="showUser(&#39;Omikron&#39;, &#39;Owner&#39;)">
+                        Omikron
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span style="color: #ff0800;">Admin - 1</span>
+                <ul style="padding-left: 15px;">
+                    <li onclick="showUser(&#39;andro24&#39;, &#39;Admin&#39;)">
+                        andro24
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span style="color: #0065ff;">Mod - 1</span>
+                <ul style="padding-left: 15px;">
+                    <li onclick="showUser(&#39;xTrM1&#39;, &#39;Mod&#39;)">
+                        xTrM1
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span style="color: #00c613;">Helper - 1</span>
+                <ul style="padding-left: 15px;">
+                    <li onclick="showUser(&#39;Zedrye&#39;, &#39;Helper&#39;)">
+                        Zedrye
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span style="color: #e0a802;">Youtuber - 0</span>
+                <ul style="padding-left: 15px;">
+                </ul>
+            </li>
+            <li>
+                <span style="color: #f700ce;">Premium - 7</span>
+                <ul style="padding-left: 15px;">
+                    <li onclick="showUser(&#39;SigmaTTT&#39;, &#39;Premium&#39;)">
+                        SigmaTTT
+                    </li>
+                    <li onclick="showUser(&#39;dffoo&#39;, &#39;Premium&#39;)">
+                        dffoo
+                    </li>
+                    <li onclick="showUser(&#39;theDonsta&#39;, &#39;Premium&#39;)">
+                        theDonsta
+                    </li>
+                    <li onclick="showUser(&#39;Nejc&#39;, &#39;Premium&#39;)">
+                        Nejc
+                    </li>
+                    <li onclick="showUser(&#39;Veristablium&#39;, &#39;Premium&#39;)">
+                        Veristablium
+                    </li>
+                    <li onclick="showUser(&#39;vitusverden&#39;, &#39;Premium&#39;)">
+                        vitusverden
+                    </li>
+                    <li onclick="showUser(&#39;ZasCool1423&#39;, &#39;Premium&#39;)">
+                        ZasCool1423
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span style="color: #000000;">Member - 0</span>
+                <ul style="padding-left: 15px;">
+                </ul>
+            </li>
+            <li>
+                <span style="color: #000000;">Mute - 0</span>
+                <ul style="padding-left: 15px;">
+                </ul>
+            </li>
+    </ul>
+</div>
+<script id="channels-template" type="x-tmpl-mustache">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeChannels()">&times;</a>
+    <ul>
+        {{#channels}}
+            <li>
+                {{#selected}}<b>{{/selected}}<a href="javascript:void(0)" onclick="showChannel('{{name}}')">{{#newMessageCount}}<span class="badge badge-light">{{newMessageCount}}</span> {{/newMessageCount}}{{name}}</a>{{#selected}}</b>{{/selected}}
+            </li>
+        {{/channels}}
+    </ul>
+</script>
+<script id="members-template" type="x-tmpl-mustache">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMembers()">&times;</a>
+    <ul>
+        {{#ranks}}
+            <li>
+                <span style="color: #{{color}};">{{name}} - {{membersCount}}</span>
+                <ul style="padding-left: 15px;">
+                    {{#members}}
+                    <li onclick="showUser('{{username}}', '{{name}}')">
+                        {{#inGame}}IG {{/inGame}}{{username}}
+                    </li>
+                    {{/members}}
+                </ul>
+            </li>
+         {{/ranks}}
+    </ul>
+</script>
+<script id="messages-template" type="x-tmpl-mustache">
+    {{#messages}}
+        <div>
+            <b style="color: #{{rank_color}};" onclick="showMessageDialog('{{username}}', '{{rank}}', {{timestamp}})">{{username}}</b> <span class="line">{{message}}</span>
+        </div>
+    {{/messages}}
+</script>
+<script id="user-profile-template" type="x-tmpl-mustache">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{username}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{#canPromote}}
+        <div class="form-group">
+            <label for="rankSelect">Rank</label>
+            <select class="form-control" id="rankSelect">
+                {{#ranks}}
+                    <option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                {{/ranks}}
+            </select>
+        </div>
+        {{/canPromote}}
+      </div>
+      <div class="modal-footer">
+        {{#canPromote}}<button type="button" class="btn btn-primary" onclick="saveProfileChanges('{{username}}')" data-dismiss="modal">Save changes</button>{{/canPromote}}
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="user-message-template" type="x-tmpl-mustache">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Message from {{username}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="showUser('{{username}}', '{{rank}}')">Show profile</button>
+        {{#canDelete}}<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteMessage('{{username}}', '{{timestamp}}')">Delete</button>{{/canDelete}}
+        {{#canPromote}}<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="setRank('{{username}}', 'Mute')">Mute</button>{{/canPromote}}
+        {{#canPromote}}{{#canDelete}}<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="nuke('{{username}}')">Nuke (Mute & Delete last 24h)</button>{{/canDelete}}{{/canPromote}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</script>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Message from NickName</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="showUser(&#39;NickName&#39;, &#39;Premium&#39;)">Show profile</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteMessage(&#39;NickName&#39;, &#39;1557938248000&#39;)">Delete</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="setRank(&#39;NickName&#39;, &#39;Mute&#39;)">Mute</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="nuke(&#39;NickName&#39;)">Nuke (Mute &amp; Delete last 24h)</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./Agora_files/jquery.min.js.download" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="./Agora_files/bootstrap.min.js.download" crossorigin="anonymous"></script>
+<script>
+    function openChannels() {
+        //document.getElementById("channels").style.width = "250px";
+        document.getElementById("channels").classList.add("opened");
+    }
+
+    function closeChannels() {
+//        document.getElementById("channels").style.width = "0";
+        document.getElementById("channels").classList.remove("opened");
+    }
+
+    function openMembers() {
+        document.getElementById("members").classList.add("opened");
+    }
+
+    function closeMembers() {
+        document.getElementById("members").classList.remove("opened");
+    }
+
+    function showChannel(name) {
+        var channel = channels[name];
+        channel['newMessageCount'] = 0;
+        $('#messages').html(Mustache.render($('#messages-template').html(), channel))
+        if (channel['canTalk']) {
+            if ($('#text').val() === 'You cannot talk here') {
+                $('#text').prop('disabled', false);
+                $('#text').val('');
+            }
+        } else {
+            $('#text').prop('disabled', true);
+            $('#text').val('You cannot talk here');
+        }
+
+        $('#messages').animate({scrollTop: 999999999}, 'slow');
+
+        currentChannel = name;
+        closeChannels();
+        updateChannels();
+    }
+
+    function updateChannels() {
+        channelsList.forEach(function (element) {
+            element['selected'] = element['name'] === currentChannel;
+        });
+        $('#channels').html(Mustache.render($('#channels-template').html(), {channels: channelsList}));
+    }
+
+    var rgbToHex = function (rgb) {
+        var hex = Number(rgb).toString(16);
+        while (hex.length < 6) {
+            hex = "0" + hex;
+        }
+        return hex;
+    };
+
+    function sendMessage() {
+        var message = $('#text').val();
+
+        if (message.length > 2000) {
+            alert('The message length is limited to 2000 caracters');
+            return;
+        }
+        ws.send(JSON.stringify({
+            type: 'message',
+            channel: currentChannel,
+            msg: message
+        }));
+        $('#text').val('');
+    }
+
+    function saveProfileChanges(username) {
+        var rankName = $('#rankSelect').val();
+
+        setRank(username, rankName);
+    }
+
+    function setRank(username, rankName) {
+        ws.send(JSON.stringify({
+            type: 'setRank',
+            username: username,
+            rank: rankName
+        }));
+    }
+
+    function deleteMessage(username, timestamp) {
+        ws.send(JSON.stringify({
+            type: 'deleteMessage',
+            username: username,
+            timestamp: timestamp
+        }));
+    }
+
+    function nuke(username) {
+        setRank(username, 'Mute');
+        ws.send(JSON.stringify({
+            type: 'deleteMessages',
+            username: username,
+            fromTimestamp: Date.now() - 24 * 60 * 60 * 1000
+        }));
+    }
+
+    function showUser(username, rankName) {
+        ranksList.forEach(function (element) {
+            element['selected'] = element['name'] === rankName;
+        });
+        $('#modal').html(Mustache.render($('#user-profile-template').html(), {
+            username: username,
+            rankName: rankName,
+            ranks: ranksList,
+            canPromote: canPromote
+        }));
+        $('#modal').modal()
+    }
+
+    function showMessageDialog(username, rankName, timestamp) {
+        $('#modal').html(Mustache.render($('#user-message-template').html(), {
+            username: username,
+            rank: rankName,
+            canDelete: canDelete || username === currentUsername,
+            timestamp: timestamp,
+            canPromote: canPromote
+        }));
+        $('#modal').modal()
+    }
+
+    var ranks = [];
+    var ranksList = [];
+    var channels = [];
+    var channelsList = [];
+    var ws;
+    var currentChannel;
+    var canPromote = false;
+    var canDelete = false;
+    var currentUsername = false;
+
+    function getCookieValue(a) {
+        var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+        return b ? b.pop() : '';
+    }
+
+    $(function () {
+        if (getCookieValue('token') === '') {
+            window.location = "https://sigmaclient.info/agora/auth.php";
+            return;
+        }
+
+        ws = new WebSocket("wss://sigmaclient.info/ws/agora/" + getCookieValue('token'));
+
+        ws.onmessage = function (event) {
+            var data = JSON.parse(event.data);
+            console.log(data);
+
+            if (data['type'] === 'channelsAndRanks') {
+                ranksList = data['ranks'];
+                data['ranks'].forEach(function (element) {
+                    ranks[element['name']] = element;
+                    element['color'] = rgbToHex(element['color']);
+                });
+
+                channelsList = data['channels'];
+                data['channels'].forEach(function (element) {
+                    channels[element['name']] = element;
+                    element['newMessageCount'] = 0;
+
+                    element['messages'].forEach(function (element2) {
+                        element2['rank_color'] = ranks[element2['rank']]['color'];
+                    });
+                });
+
+                canPromote = data['canPromote'];
+                canDelete = data['canDelete'];
+                currentUsername = data['username'];
+
+                $('#members').html(Mustache.render($('#members-template').html(), data));
+                showChannel('announcement');
+            } else if (data['type'] === 'newMessage') {
+                var channel = channels[data['channel']];
+                data['message']['rank_color'] = ranks[data['message']['rank']]['color'];
+                channel['messages'].push(data['message']);
+                channel['newMessageCount']++;
+
+                if (data['channel'] === currentChannel) {
+                    channel['newMessageCount'] = 0;
+                    showChannel(currentChannel);
+                } else {
+                    updateChannels();
+                }
+            } else if (data['type'] === 'userConnected') {
+                ranks[data['rank']]['members'].push(data['user']);
+                ranks[data['rank']]['membersCount'] = ranks[data['rank']]['members'].length;
+                $('#members').html(Mustache.render($('#members-template').html(), {ranks: ranksList}));
+            } else if (data['type'] === 'userDisconnected') {
+                var newMembersArray = [];
+                ranks[data['rank']]['members'].forEach(function (element) {
+                    if (element['username'] !== data['user']['username']) {
+                        newMembersArray.push(element);
+                    }
+                });
+                ranks[data['rank']]['members'] = newMembersArray;
+                ranks[data['rank']]['membersCount'] = newMembersArray.length;
+                $('#members').html(Mustache.render($('#members-template').html(), {ranks: ranksList}));
+            } else if (data['type'] === 'deleteMessage') {
+                channelsList.forEach(function (element) {
+                    var newMessages = [];
+                    element['messages'].forEach(function (element2) {
+                        if (element2['username'] !== data['username'] || element2['timestamp'] !== data['timestamp']) {
+                            newMessages.push(element2);
+                        }
+                    });
+                    element['messages'] = newMessages;
+                });
+                showChannel(currentChannel);
+            } else if (data['type'] === 'deleteMessages') {
+                channelsList.forEach(function (element) {
+                    var newMessages = [];
+                    element['messages'].forEach(function (element2) {
+                        if (element2['username'] !== data['username'] || element2['timestamp'] < data['fromTimestamp']) {
+                            newMessages.push(element2);
+                        }
+                    });
+                    element['messages'] = newMessages;
+                });
+                showChannel(currentChannel);
+            } else if (data['type'] === 'authFail') {
+                window.location = "https://sigmaclient.info/agora/auth.php";
+            }
+        };
+
+        $("#text").keypress(function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                sendMessage();
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+</body></html>
