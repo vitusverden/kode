@@ -5,10 +5,10 @@ window.onload=function() {
 var lightsourceX = 500;
 var lightsourceY = 250;
 
-var borderX1 = 0;
-var borderY1 = 0;
-var borderX2 = 0;
-var borderY2 = 0;
+var borderX1 = 100;
+var borderY1 = 100;
+var borderX2 = 100;
+var borderY2 = 500;
 
 
 var points = [];
@@ -97,15 +97,19 @@ lightsourceY + 4, lightsourceX + 4,
 lightsourceY + 4, lightsourceX + 5,]
 
 
+intersect()
+
     for (let i = 0; i < points.length; i += 2) {
 	  	let x = differenceBetween(lightsourceX, points[i + 1])
 		  let y = differenceBetween(lightsourceY, points[i])
   		x = x * 200
       y = y * 200
-      
-      if(intersect(lightsourceX, lightsourceY, x, y, borderY1, borderX1, borderY2, borderX2) == false) {
-        createLine(i, lightsourceX, lightsourceY, x, y)  
-      } 
+      let intersectpoint = intersect(lightsourceX, lightsourceY, x, y, borderY1, borderX1, borderY2, borderX2) == false;
+      if(intersectpoint == false) {
+        createLine(i, lightsourceX, lightsourceY, x, y)
+      } else {
+				createLine(lightsourceX, lightsourceY, intersectpoint.x, intersectpoint.y)
+			}
     }
 
     
