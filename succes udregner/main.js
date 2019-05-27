@@ -11,21 +11,10 @@ window.onload=function() {
 	document.getElementById("FEL").value = localStorage.getItem("FEL")
 	setInterval(update,333);
 };
-
-
-
 var whatroll;
 var theroll;
-
 function update() {
-	localStorage.setItem("WS", document.getElementById("WS").value)
-	localStorage.setItem("BS", document.getElementById("BS").value)
-	localStorage.setItem("S", document.getElementById("S").value)
-	localStorage.setItem("T", document.getElementById("T").value)
-	localStorage.setItem("AG", document.getElementById("AG").value)
-	localStorage.setItem("INT", document.getElementById("INT").value)
-	localStorage.setItem("WP", document.getElementById("WP").value)
-	localStorage.setItem("FEL", document.getElementById("FEL").value)
+	
 	whatroll = document.getElementById("onroll").value;
 	theroll = Number(document.getElementById("cast").value);
 	var i = theroll;
@@ -33,7 +22,7 @@ function update() {
 
 
 
-	if (theroll != 0 && document.getElementById(document.getElementById("onroll").value).value < 100 && document.getElementById(document.getElementById("onroll").value).value > 0 && theroll > 0 && theroll < 101) {
+	if (theroll != 0 && document.getElementById(document.getElementById("onroll").value).value < 150 && document.getElementById(document.getElementById("onroll").value).value > -50 && theroll > -50 && theroll < 150) {
 		if (i > document.getElementById(document.getElementById("onroll").value).value) {
 			succeser = succeser - 1	
 			while (i - 10 > document.getElementById(document.getElementById("onroll").value).value) {
