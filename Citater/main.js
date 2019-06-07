@@ -8,10 +8,11 @@
  "Alfred 30-04-2019: Kan jeg gå igennem døre?",
  "Emil 30-04-2019: Vand - det er jo nederen.",
  "Emil 01-05-2019: Jeg vil til darnhall.",
- "Google 01-05-2019: http://www.darnhall.cheshire.sch.uk/ - Darnhall folkeskole. Et meget beroligende sted",
+ "Nettet 01-05-2019: http://www.darnhall.cheshire.sch.uk/ - Darnhall folkeskole. Et meget beroligende sted",
  "Rune 01-05-2019: Vi ruller lige heroppe.",
  "Emil 10-05-2019: ... han har snakket med kinesere.",
- " 01-05-2019: "
+ "Emil/alfred 07-06-2019: Det arger mig at Hitler ikke går i arv.",
+ " 07-06-2019: "
 ]
 window.onload=function() {
 
