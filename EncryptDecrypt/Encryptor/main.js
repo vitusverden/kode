@@ -5,7 +5,7 @@ var numberinput = parseInt(document.querySelector(".numberinput").value);
 var output = []
 var temp2 = ""
 function moveInArray(letter, moveBy) {
-    if (alphabet.indexOf(letter) == -1) {   
+    if (alphabet.indexOf(letter) == -1) {
         return "?"
     } else {
         var temp1 = alphabet.indexOf(letter)
@@ -18,10 +18,10 @@ function moveInArray(letter, moveBy) {
             } else {
                 return alphabet[temp1 + moveBy]
             }
-            
+
         }
     }
-    
+
 }
 
 
@@ -35,14 +35,14 @@ function encrypt() {
     var i = 0;
     var mov = i;
     for (i = 0; i < input.length; i++) {
-	mov += i
-	if (mov > alphabet.length -5) {
-	    mov = 4
-	}
+        mov += i
+        if (mov > alphabet.length - 5) {
+            mov = 4
+        }
         output[i] = alphabet.indexOf(moveInArray(input[i], numberinput + mov)) + " "
     }
     temp2 = output.toString()
-    for (i = 0; i < output.length * 2; i = i + 2) { 
+    for (i = 0; i < output.length * 2; i = i + 2) {
         temp2 = temp2.toString().replace(",", "");
     }
     document.getElementById("output").innerHTML = temp2;

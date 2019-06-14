@@ -11,8 +11,8 @@
  "Nettet 01-05-2019: http://www.darnhall.cheshire.sch.uk/ - Darnhall folkeskole. Et meget beroligende sted",
  "Rune 01-05-2019: Vi ruller lige heroppe.",
  "Emil 10-05-2019: ... han har snakket med kinesere.",
- "Emil/alfred 07-06-2019: Det arger mig at Hitler ikke går i arv.",
- " 07-06-2019: "
+ "Alfred 07-06-2019: Det arger mig at Hitler ikke går i arv.",
+ "Emil 14-06-2019: (peger på Alfred) Dit navn er Albert Charlie..."
 ]
 window.onload=function() {
 
