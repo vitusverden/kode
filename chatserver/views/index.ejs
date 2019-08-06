@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Super chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    
+</head>
+<body style="text-align: center;">
+    <h1>Super chat</h1>
+    <form action="#">
+        <input type="text" id="username"> <button id="send_username">Skift brugernavn</button>
+    </form>
+    <br>
+    <div id="chatroom" style="width: 98%; height: 50%;">
+    </div>
+    <br>
+    <form action="#">
+        <input type="text" id="message" style="width: 94%;"> <button id="send_message" style="width: 4%;">Send</button>
+    </form>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        if (localStorage.getItem("lastname")) {
+            document.getElementById("username").value = localStorage.getItem("lastname")
+        }
+        $(function(){
+            var socket = io.connect('http://localhost:3000')
+
+            var message = $("#message")
+            var username = $("#username")
+            var send_message = $("#send_message")
+            var send_username = $("#send_username")
+            var chatroom = $("chatroom")
+            
+            send_message.click(function(){
+                socket.emit('new_message', {message: message.val()})
+            })
+
+            socket.on("new_message", (data) => {
+                console.log(data)
+                document.getElementById("chatroom").innerHTML += "<p class='message'>(" + data.date + ") " + data.username + ": " + data.message + "</p>"
+                //chatroom.append("<p class='message'>" + data.username + ":" + data.message + "</p>")
+            })
+            send_username.click(function(){
+                console.log(username.val())
+                socket.emit('change_username', {username: username.val()})
+                localStorage.setItem("lastname", username.val())
+            })
+
+            socket.on("system_message", (data) => {
+                document.getElementById("chatroom").innerHTML += "<p class='system_message message'>(" + data.date + ") [SYSTEM BESKED] " + data.message + "</p>"
+            })
+
+            socket.emit('change_username', {username: username.val()})
+        })
+    </script>
+</body>
+</html>
