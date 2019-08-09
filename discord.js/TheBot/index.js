@@ -21,16 +21,17 @@ bot.on("message", async message => {
         if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("nah jeg lytter ikke til dig")
         if (kUser.hasPermission("KICK_MEMBERS") && !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("nah ham har jeg ikke lyst til at kicke")
         let kReason = args.join(" ").slice(22)
+        message.channel.send("test")
 
         let kickEmbed = new Discord.RichEmbed
-        .setDescription("KICK")
+        .setDescription("lol kicket")
         .setColor("#d40012")
         .addField("Kicked bruger", `${kUser}, med id ${kUser.id}`)
         .addField("Kicked af", `<@${message.author.id}> med id ${message.author.id}`)
-        .addField("Grund", kReason)
+        .addField("Grund", kReason);
 
-        message.delete(1000);
-        return message.channel.sendMessage(kickEmbed)
+        //message.delete(1000);
+        return message.channel.send(kickEmbed)
 
         //VIRKER IKKE
         /*
