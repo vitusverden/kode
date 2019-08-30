@@ -17,7 +17,9 @@
  "07-08-2019 Benjamin: Den her popcorn smager lidt af gummi",
  "{ML}Alfred: Det er fordi at den er gummi agtig.",
  "{ML}Rune: Det sagde hun også igår.",
- ""
+ "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
+ "29-08-2019 En eller anden rollespiller: Fuck ragil.",
+ "{ML}Jakob: NEEJ, du må ik kysse min ragil!"
 ]
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {
