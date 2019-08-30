@@ -53,8 +53,10 @@
  "15-08-2019 Elton (en klassekammerat): (lugter til en squishy) Ad den stinker... Den er giftig!",
  "16-08-2019 Benjamin: Halvejs igennem hoppet, huskede jeg at jeg kun havde 1 liv...",
  "20-08-2019 Lili-Luna: Kan i ikke lige have sex et andet sted?",
- "26-06-2019 Alfred: Man skulle forfanden tro at du står i ledtog med Dansk Folkeparti.",
- "26-06-2019 Emil: Fucking lige frem"
+ "26-08-2019 Alfred: Man skulle forfanden tro at du står i ledtog med Dansk Folkeparti.",
+ "26-08-2019 Emil: Fucking lige frem",
+ "29-08-2019 Rune: Glæd dig til at jeg får flere liv end dig.",
+ "{ML}Jakob: Nej, du må ikke skifte karekter, jeg eeelsker dig!"
 ]
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {
