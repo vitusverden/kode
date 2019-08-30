@@ -7,22 +7,6 @@ var staffOpen2 = false;
 var temp;
 
 
-window.onload=function() {
-    temp = Math.floor(getRandomArbitrary(1, 4));
-    if(temp == 1) {
-        document.getElementById("bod").style.background-image = "url(https://i.gifer.com/bIa.gif)";
-    } else if(temp == 2) {
-        document.getElementById("bod").style.background-image = "url(https://media0.giphy.com/media/O7hIMjgr0dTig/source.gif)";
-    } else if(temp == 3) {
-        document.getElementById("bod").style.background-image = "url(https://i.pinimg.com/originals/ae/b2/d0/aeb2d0be9d51d9f428116ca7582439b8.gif)";
-    }
-    
-
-};
-
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
 
 function klikketDiv(div) {
     if (!menuopen, !staffOpen1, !staffOpen2) {

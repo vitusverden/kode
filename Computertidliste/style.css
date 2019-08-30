@@ -1,4 +1,4 @@
-.vColumn {
+gi.vColumn {
     border: 2px solid red;
     text-align: center; 
     
@@ -21,7 +21,6 @@ tr.vColumns {
 
 body {
     position: relative;
-    background-image: url(https://media0.giphy.com/media/O7hIMjgr0dTig/source.gif);
 }
 
 #submit-box, #staff-box, #staff-veri-box {
