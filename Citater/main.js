@@ -64,8 +64,11 @@
  "30-08-2019 Rune: Giv mig noget kattemad, så kan vi finde ud af det.",
  "02-09-2019 Vitus: Er det nu et achivement at narre mig?",
  "{ML}Benjamin: Jeg har et achivement på dig: At dræbe dig to gange",
- "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet."
-];
+ "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet.",
+ "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
+ "29-08-2019 En eller anden rollespiller: Fuck ragil.",
+ "{ML}Jakob: NEEJ, du må ik kysse min ragil!"
+],
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {
 
