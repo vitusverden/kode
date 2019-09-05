@@ -1,7 +1,7 @@
 ﻿var citater = 
 [
- "For lang tid siden Emil: Piger er nogle girakkere.",
- "For lang tid siden Vitus: Det er ikke en kappe, det er en tabard!",
+ "xx-xx-20xx Vitus: Det er ikke en kappe, det er en tabard!",
+ "xx-xx-2019 Emil: Piger er nogle girakkere.",
  "29-04-2019 Alfred: ... jeg er meget dybt koncentret i at skrive på et whiteboard.",
  "30-04-2019 Emil: Tænk hvis puden slår igen.",
  "30-04-2019 Alfred: Kan jeg gå igennem døre?",
@@ -56,17 +56,25 @@
  "26-08-2019 Alfred: Man skulle forfanden tro at du står i ledtog med Dansk Folkeparti.",
  "26-08-2019 Emil: Fucking lige frem",
  "29-08-2019 Rune: Glæd dig til at jeg får flere liv end dig.",
- "{ML}Jakob: Nej, du må ikke skifte karekter, jeg eeelsker dig!"
-]
+ "{ML}Jakob: Nej, du må ikke skifte karekter, jeg eeelsker dig!",
+ "30-08-2019 Vitus: Don't give the dragon an exsitensial crisis.",
+ "30-08-2019 Adrian: Kan vi ikke sige, at jeg har en backpack med mine hoveder i?",
+ "30-08-2019 Rune: Jeg kan ikke fejle.",
+ "{ML}Emil: Whaao, stem på mig.",
+ "30-08-2019 Rune: Giv mig noget kattemad, så kan vi finde ud af det.",
+ "02-09-2019 Vitus: Er det nu et achivement at narre mig?",
+ "{ML}Benjamin: Jeg har et achivement på dig: At dræbe dig to gange",
+ "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet."
+];
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {
 
 	var str = citater[i];
 	var res = str.replace("{ML}", "");	
 	if (res == str) {
-		document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>"
+		document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>";
 	} else {
-		document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>"
+		document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>";
 	}
 
 }
