@@ -1,5 +1,4 @@
-var wss = new WebSocket("wss://kahoot.it/cometd/434700/ea6333380cc6b5dd2babeadaef7bc98bc57617e5ee1a9e9d0a39002092377b1be2ead6690aa0130158fedbfb57569036")
-
+var wss = new WebSocket("wss://kahoot.it/cometd/14325/7ead5110a607e0e4682960e34dc2b70bd4adfe50691cffbbde8e0aa9395670b86abd260a4a7e8d6a606df954cac9d9ee")
 function spam() {
     wss.send({id: "1", version: "1.0", minimumVersion: "1.0", channel: "/meta/handshake"})
     
@@ -30,4 +29,4 @@ wss.onopen = function(e) {
 //**
 /* Kahoot spam, bruger websocket, man burde kunne åbne en masse websockets og dermed spamme. den besked jeg sender i spam() virker ikke.
 /*
-/************** *//
+/************** */44
