@@ -48,7 +48,7 @@
  "13-08-2019 Martin (vores dansklærer): Jeg bruger ikke meget af min hjernekapacitet på at tænke over, hvad dumme mennesker gør og ikke gør.",
  "14-08-2019 Adrian: Vidste du at djorka er et synonym for min far er bedre end din far?",
  "{ML}Alfred: Ja det er rigtigt fordi Ragiiiil!",
- "15-08-2019 Madicken (en klassekammerat): Lad ham sove, ellers så dør han!",
+ "15-08-2019 Thilde (en klassekammerat): Lad ham sove, ellers så dør han!",
  "15-08-2019 Vitus: Jaidouzeans (udtalet [chaidusang])",
  "15-08-2019 Elton (en klassekammerat): (lugter til en squishy) Ad den stinker... Den er giftig!",
  "16-08-2019 Benjamin: Halvejs igennem hoppet, huskede jeg at jeg kun havde 1 liv...",
@@ -67,8 +67,8 @@
  "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet.",
  "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
  "29-08-2019 En eller anden rollespiller: Fuck ragil.",
- "{ML}Jakob: NEEJ, du må ik kysse min ragil!"
-],
+ "{ML}Alfred: NEEJ, du må ik kysse min ragil!"
+]
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {
 
