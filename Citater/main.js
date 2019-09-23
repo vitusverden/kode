@@ -67,19 +67,22 @@
  "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet.",
  "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
  "29-08-2019 En eller anden rollespiller: Fuck ragil.",
- "{ML}Alfred: NEEJ, du må ik kysse min ragil!"
+ "{ML}Alfred: NEEJ, du må ik kysse min ragil!",
+ "13-09-2019 Vitus: Hvor er mine ører?",
+ "13-09-2019 Emil: Romerriget og Nazityskland sat sammen og sat ind i middelalderen, så har du Emyr.",
+ "20-09-2019 Alfred: Du ved godt at jeg har et oneshot sværd ik?"
 ]
 window.onload=function() {
-for (let i = 0; i < citater.length; i++) {
+	for (let i = 0; i < citater.length; i++) {
 
-	var str = citater[i];
-	var res = str.replace("{ML}", "");	
-	if (res == str) {
-		document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>";
-	} else {
-		document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>";
+		var str = citater[i];
+		var res = str.replace("{ML}", "");	
+		if (res == str) {
+			document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>";
+		} else {
+			document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>";
+		}
+
 	}
-
-}
 
 }
