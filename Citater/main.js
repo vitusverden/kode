@@ -59,7 +59,9 @@
  "{ML}Jakob: Nej, du må ikke skifte karekter, jeg eeelsker dig!",
  "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
  "29-08-2019 En eller anden rollespiller: Fuck ragil.",
- "{ML}Jakob: NEEJ, du må ik kysse min ragil!"
+ "{ML}Jakob: NEEJ, du må ik kysse min ragil!",
+ "04-09-2019 Min kodelærer: Gider du ikke godt lukke Cookie clicker please?",
+ "25-09-2019 Vores kodelærer i skolen: ... og så kan man jo lave et intelligent æg."
 ]
 window.onload=function() {
 for (let i = 0; i < citater.length; i++) {

@@ -3,7 +3,7 @@ const app = express()
 var messageHistM = []
 var messageHistU = []
 var messageHistD = []
-var port = 3000
+var port = 1234
 
 app.set('view engine', 'ejs')
 
