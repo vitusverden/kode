@@ -1,7 +1,7 @@
 ﻿var citater = 
 [
- "For lang tid siden Emil: Piger er nogle girakkere.",
- "For lang tid siden Vitus: Det er ikke en kappe, det er en tabard!",
+ "xx-xx-20xx Vitus: Det er ikke en kappe, det er en tabard!",
+ "xx-xx-2019 Emil: Piger er nogle girakkere.",
  "29-04-2019 Alfred: ... jeg er meget dybt koncentret i at skrive på et whiteboard.",
  "30-04-2019 Emil: Tænk hvis puden slår igen.",
  "30-04-2019 Alfred: Kan jeg gå igennem døre?",
@@ -48,7 +48,7 @@
  "13-08-2019 Martin (vores dansklærer): Jeg bruger ikke meget af min hjernekapacitet på at tænke over, hvad dumme mennesker gør og ikke gør.",
  "14-08-2019 Adrian: Vidste du at djorka er et synonym for min far er bedre end din far?",
  "{ML}Alfred: Ja det er rigtigt fordi Ragiiiil!",
- "15-08-2019 Madicken (en klassekammerat): Lad ham sove, ellers så dør han!",
+ "15-08-2019 Thilde (en klassekammerat): Lad ham sove, ellers så dør han!",
  "15-08-2019 Vitus: Jaidouzeans (udtalet [chaidusang])",
  "15-08-2019 Elton (en klassekammerat): (lugter til en squishy) Ad den stinker... Den er giftig!",
  "16-08-2019 Benjamin: Halvejs igennem hoppet, huskede jeg at jeg kun havde 1 liv...",
@@ -57,23 +57,35 @@
  "26-08-2019 Emil: Fucking lige frem",
  "29-08-2019 Rune: Glæd dig til at jeg får flere liv end dig.",
  "{ML}Jakob: Nej, du må ikke skifte karekter, jeg eeelsker dig!",
+ "30-08-2019 Vitus: Don't give the dragon an exsitensial crisis.",
+ "30-08-2019 Adrian: Kan vi ikke sige, at jeg har en backpack med mine hoveder i?",
+ "30-08-2019 Rune: Jeg kan ikke fejle.",
+ "{ML}Emil: Whaao, stem på mig.",
+ "30-08-2019 Rune: Giv mig noget kattemad, så kan vi finde ud af det.",
+ "02-09-2019 Vitus: Er det nu et achivement at narre mig?",
+ "{ML}Benjamin: Jeg har et achivement på dig: At dræbe dig to gange",
+ "03-09-2019 Elton (en klassekammerat): Jeg leger at jeg er retaderet.",
  "19-08-2019 Villads W: Det er ikke din sexdukke, Chanel",
  "29-08-2019 En eller anden rollespiller: Fuck ragil.",
- "{ML}Jakob: NEEJ, du må ik kysse min ragil!",
+ "{ML}Alfred: NEEJ, du må ik kysse min ragil!",
  "04-09-2019 Min kodelærer: Gider du ikke godt lukke Cookie clicker please?",
- "25-09-2019 Vores kodelærer i skolen: ... og så kan man jo lave et intelligent æg."
+ "13-09-2019 Vitus: Hvor er mine ører?",
+ "13-09-2019 Emil: Romerriget og Nazityskland sat sammen og sat ind i middelalderen, så har du Emyr.",
+ "20-09-2019 Alfred: Du ved godt at jeg har et oneshot sværd ik?",
+ "25-09-2019 Vores kodelærer i skolen: ... og så kan man jo lave et intelligent æg.",
+
 ]
 window.onload=function() {
-for (let i = 0; i < citater.length; i++) {
+	for (let i = 0; i < citater.length; i++) {
 
-	var str = citater[i];
-	var res = str.replace("{ML}", "");	
-	if (res == str) {
-		document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>"
-	} else {
-		document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>"
+		var str = citater[i];
+		var res = str.replace("{ML}", "");	
+		if (res == str) {
+			document.getElementById("citater").innerHTML += "<br>" + "<p>" + "\"" + str + "\"" + "</p>";
+		} else {
+			document.getElementById("citater").innerHTML += "<p>" + "\"" + res + "\"" + "</p>";
+		}
+
 	}
-
-}
 
 }
