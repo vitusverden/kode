@@ -1,9 +1,12 @@
-p z7yzjidfhguyhdbgfudfguy
-h1 ernsdfxcihheridsxbcuheqdrfxcb
-
-
-
-form(action="./", method="post")
+p #{error}
+p Register form
+form(action="./register", method="post")
     input(type="text", placeholder="brugernavn", name="username")
     input(type="password", name="password", placeholder="d")
-    input(type="submit", value="heej")
+    input(type="submit", value="Register")
+br
+p Login form
+form(action="./login", method="post")
+    input(type="text", placeholder="brugernavn", name="username")
+    input(type="password", name="password", placeholder="d")
+    input(type="submit", value="Login")
