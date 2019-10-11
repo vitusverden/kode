@@ -74,7 +74,9 @@
  "20-09-2019 Alfred: Du ved godt at jeg har et oneshot sværd ik?",
  "25-09-2019 Vores kodelærer i skolen: ... og så kan man jo lave et intelligent æg.",
  "27-09-2019 Random lille pige: Jeg er ikke lille, jeg går allerede i første klasse",
- "08-10-2019 Rune: Det er ligemeget, det er min drage, hun gør hvad jeg siger"
+ "08-10-2019 Rune: Det er ligemeget, det er min drage, hun gør hvad jeg siger",
+ "11-10-2019 Emil: Som person er vitus vidstnok printet af sine forældre",
+ "11-10-2019 Alfred: Du skal heller ikke inhalere en orm, bare fordi den er der!"
 ]
 window.onload=function() {
 	for (let i = 0; i < citater.length; i++) {
