@@ -1,2 +1,58 @@
 p Hej #{brugernavn}
-p Tak for dit password
+p Dette er chatten
+form(action="#")
+	input(type="text", placeholder="message", id="mes")
+	input(type="button", value="Send besked", onclick="sendChat()")
+<!-- Den refresher siden og siger at den ikke kan get /login? Den har jo allerede fået /login -->
+div(style="border: 5px solid black; border-radius: 5px;", id="chat")
+
+	
+script.
+
+	//function sendChat() {
+	//	var xhr = new XMLHttpRequest();
+	//	xhr.open('POST', "../chat", true)
+	//	xhr.onreadystatechange = (e) => {
+	//		
+	//	}
+	//	xhr.send(document.getElementById("mes").value + " " + "#{brugernavn}")
+	//}
+
+	setInterval(() => {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', "../getchat", true)
+		xhr.onreadystatechange = (e) => {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var response = JSON.parse(xhr.responseText);
+				document.getElementById("chat").innerHTML = ""
+				for (let i = 0; i < response.length; i++) {
+					const element = response[i];
+					document.getElementById("chat").innerHTML += "<p>" + element + "</p>"
+				}
+			}
+		}
+		xhr.setRequestHeader("Content-Type", "application/json")
+		xhr.send(JSON.stringify({username: "#{brugernavn}", password: "#{password}"}));
+		}, 3000);
+	function sendChat(mes) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', "../sendchat", true)
+		xhr.setRequestHeader("Content-Type", "application/json")
+		xhr.onreadystatechange = (e) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "../getchat", true)
+			xhr.onreadystatechange = (e) => {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response = JSON.parse(xhr.responseText);
+					document.getElementById("chat").innerHTML = ""
+					for (let i = 0; i < response.length; i++) {
+						const element = response[i];
+						document.getElementById("chat").innerHTML += "<p>" + element + "</p>"
+					}
+				}
+			}
+			xhr.setRequestHeader("Content-Type", "application/json")
+			xhr.send(JSON.stringify({username: "#{brugernavn}", password: "#{password}"}));
+		}
+		xhr.send(JSON.stringify({username: "#{brugernavn}", password: "#{password}", message: mes}));
+	}

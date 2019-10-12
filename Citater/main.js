@@ -73,7 +73,8 @@
  "13-09-2019 Emil: Romerriget og Nazityskland sat sammen og sat ind i middelalderen, så har du Emyr.",
  "20-09-2019 Alfred: Du ved godt at jeg har et oneshot sværd ik?",
  "25-09-2019 Vores kodelærer i skolen: ... og så kan man jo lave et intelligent æg.",
-
+ "30-09-2019 Leo: Ja, præsist han er fattig, så vi skal bare smide ham ud",
+ "30-09-2019 Alfred: I virkeligheden, når nej Warhammer"
 ]
 window.onload=function() {
 	for (let i = 0; i < citater.length; i++) {
