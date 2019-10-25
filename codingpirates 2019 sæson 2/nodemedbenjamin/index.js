@@ -3,7 +3,9 @@ const bodyParser = require("body-parser")
 const app = express();
 const fs = require("fs")
 
-var chat = ["[ADMIN] Chat startet"]
+var chat = [
+	"[ADMIN] Chat startet"
+]
 
 app.listen(8080, () => {
 	console.log("server startet")
@@ -19,52 +21,64 @@ app.get('/', (req, res) => {
 });
 
 app.post('/sendchat', (req, res) => {
-
 	console.log(req.body)
 	var acceptable = false
 	var name = req.body.username
-	console.log(req.body.username)
+	var admin = false
 	fs.readFile('test.txt', (err, data) => {
 		if (err) throw err;
 		var logins = String(data).split("\n")
 		for (let i = 0; i < logins.length; i++) {
-			const element = logins[i];
-			if (element.includes(name)) {
-				if (req.body.password == element.replace(name + " ", "")) {
-					console.log("acceptable should now be true")
+			const element = logins[i].split(" ");
+			if (element[0] == name) {
+				if (req.body.password == element[1]) {
 					acceptable = true
+				}
+				if (element[2] == "true") {
+					admin = true
+					console.log()
 				}
 			}
 		}
-		console.log(acceptable)
-		if (acceptable == true) {
-			chat.push("[" + name + "] " + req.body.mes)
-			res.sendStatus(200)
+		if (req.body.message == "?resetchat" && admin == true) {
+			chat = ["<h3>" + name + " clearede chatten</h1>"]
 		} else {
-			res.sendStatus(403)
+			if (acceptable == true) {
+				if (admin == true) {
+					date = new Date().getDate() + "/" + (new Date().getMonth() + 1) + " " + new Date().getHours() + "." + new Date().getMinutes()
+					message = String(req.body.message).replace(new RegExp('<img', 'g'), '<img style="height: 25%;"');
+					
+					chat.push("<span style='color: red;'><b>" + name + "</b></span> " + "<span style='color: grey;'>"+ date + "</span> <br>" + message)
+					res.sendStatus(200)
+				} else {
+					date = new Date().getDate() + "/" + (new Date().getMonth() + 1) + " " + new Date().getHours() + "." + new Date().getMinutes()
+					message = String(req.body.message).replace(new RegExp('<', 'g'), '&lt');
+					
+					chat.push("<b>" + name + "</b> " + "<span style='color: grey;'>"+ date + "</span> <br>" + message)
+					res.sendStatus(200)
+				}
+			} else {
+				res.sendStatus(403)
+			}
 		}
 	});
+	
 });
 
 app.post('/getchat', (req, res) => {
-
-	console.log(req.body)
 	var acceptable = false
 	var name = req.body.username
-	console.log(req.body.username)
 	fs.readFile('test.txt', (err, data) => {
 		if (err) throw err;
 		var logins = String(data).split("\n")
 		for (let i = 0; i < logins.length; i++) {
-			const element = logins[i];
+			const element = logins[i].split(" ");
 			if (element.includes(name)) {
-				if (req.body.password == element.replace(name + " ", "")) {
-					console.log("acceptable should now be true")
+				if (req.body.password == element[1]) {
 					acceptable = true
 				}
 			}
 		}
-		console.log(acceptable)
 		if (acceptable == true) {
 			res.send(chat)
 		} else {
@@ -76,15 +90,15 @@ app.post('/getchat', (req, res) => {
 
 
 app.post("/register", (req, res) => {
-	var thing = req.body.username + " " + req.body.password
+	var thing = req.body.username + " " + req.body.password + " false"
 	var x = true;
 	var name = req.body.username
 	fs.readFile('test.txt', (err, data) => {
 		if (err) throw err;
 		var logins = String(data).split("\n")
 		for (let i = 0; i < logins.length; i++) {
-			const element = logins[i];
-			if (element.includes(name)) {
+			const element = logins[i].split(" ");
+			if (element[0] == name) {
 				x = false
 				console.log(element)
 			}
@@ -102,7 +116,8 @@ app.post("/register", (req, res) => {
 		
 					res.render("minside.pug", {
 						brugernavn: req.body.username,
-						password: req.body.password
+						password: req.body.password,
+						admin: false
 					})
 				});
 			});
@@ -128,12 +143,13 @@ app.post("/login", (req, res) => {
 		if (err) throw err;
 		var logins = String(data).split("\n")
 		for (let i = 0; i < logins.length; i++) {
-			const element = logins[i];
+			const element = logins[i].split(" ");
 			if (element.includes(name)) {
-				if (req.body.password == element.replace(name + " ", "")) {
+				if (req.body.password == element[1]) {
 					res.render("minside.pug", {
 						brugernavn: req.body.username,
-						password: req.body.password
+						password: req.body.password,
+						admin: element[2]
 					})
 				} else {
 					res.render("index.pug", {
