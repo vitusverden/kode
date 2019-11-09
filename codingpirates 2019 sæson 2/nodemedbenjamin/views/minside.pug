@@ -1,13 +1,79 @@
 p Hej #{brugernavn}
-p Dette er chatten
+ 
 //- Todo:
 //- https://gyazo.com/46f236163b555a7afba59f83ff2a23f6	- notifikationer?
+style.
+	.hover-content {
+		display:none;
+	}
+	.parent:hover .hover-content {
+		display:block;
+	}
+	.parent {
+		background-color: white;
+	}
+	.parent:hover {
+		background-color: #dddddd;
+	}
 
-div(style="border: 5px solid black; border-radius: 5px; overflow-y: scroll; height: 70%;", id="chat")
+div(style="border: 5px solid black; border-radius: 5px; overflow-y: scroll; height: 70%; padding-top: 20px;x", id="chat")
 input(type="text", placeholder="message", id="mes")
 input(type="button", value="Send besked", onclick="sendChat()")
 
 script.
+	
+	function deleteMes(name, time, message, admin) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', "../deletemessage", true)
+		xhr.setRequestHeader("Content-Type", "application/json")
+		xhr.onreadystatechange = (e) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', "../getchat", true)
+			xhr.onreadystatechange = (e) => {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response = JSON.parse(xhr.responseText);
+					reloadChat(response)
+				}
+				var objDiv = document.getElementById("chat");
+				objDiv.scrollTop = objDiv.scrollHeight;
+			}
+			xhr.setRequestHeader("Content-Type", "application/json")
+			xhr.send(JSON.stringify({username: "#{brugernavn}", password: "#{password}"}));
+			document.getElementById("mes").value = ""
+		}
+		xhr.send(JSON.stringify({username: "#{brugernavn}", password: "#{password}", name: name, date: time, message: message, admin: admin}));
+	}
+
+	function reloadChat(response) {
+		document.getElementById("chat").innerHTML = ""
+		for (let i = 0; i < response.length; i++) {
+			const element = response[i];
+			document.getElementById("chat").innerHTML += formatMes(element.name, element.date, element.message, element.admin, element.same)
+		}
+	}
+
+	function formatMes(name, time, mes, admin, same) {
+		var margin = false;
+		if(document.getElementById("chat").innerHTML) margin = true;
+		var color = ""
+		var deleteIcon = ""
+		var nameandtime = ""
+		var marginTop = "0px;"
+		var widthheight = "20px"
+		if(admin) {
+			color = "style='color: red'"
+		}
+		if(!same) {
+			nameandtime = "<span " + color + "><b>" + name + "</b></span><span style='color: grey;'> " + time + "</span><br>"
+			if(margin) marginTop = "18px;"
+			widthheight = "40px"
+		}
+		if("#{admin}" === "true" || name == "#{brugernavn}") {
+			deleteIcon = "<img src='https://www.shareicon.net/data/512x512/2015/12/19/690073_sign_512x512.png' height='" + widthheight + "' width='" + widthheight + "' style='opacity: 0.7;' onclick='deleteMes(\"" + name + "\", \"" + time + "\", \"" + mes + "\", " + admin + ")' style='top: 0px; height: 7%; float: right; opacity: 0.7;' class='hover-content'></span> "
+		}
+	
+		return "<div class='parent' style='padding-left: 20px; padding-right: 20px; display: flex; justify-content: space-between; margin-top: " + marginTop + "'><div>" + nameandtime + "<span>" + mes + "</span></div>" + deleteIcon + "</div></div>"
+		}
 
 	document.getElementById("mes").addEventListener("keydown", function (e) {
 		if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
@@ -20,11 +86,7 @@ script.
 	xhr.onreadystatechange = (e) => {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			var response = JSON.parse(xhr.responseText);
-			document.getElementById("chat").innerHTML = ""
-			for (let i = 0; i < response.length; i++) {
-				const element = response[i];
-				document.getElementById("chat").innerHTML += "<p>" + element + "</p>"
-			}
+			reloadChat(response)
 		}
 	}
 	xhr.setRequestHeader("Content-Type", "application/json")
@@ -36,11 +98,7 @@ script.
 		xhr.onreadystatechange = (e) => {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				var response = JSON.parse(xhr.responseText);
-				document.getElementById("chat").innerHTML = ""
-				for (let i = 0; i < response.length; i++) {
-					const element = response[i];
-					document.getElementById("chat").innerHTML += "<p>" + element + "</p>"
-				}
+				reloadChat(response)
 			}
 		}
 		xhr.setRequestHeader("Content-Type", "application/json")
@@ -57,11 +115,7 @@ script.
 				xhr.onreadystatechange = (e) => {
 					if (xhr.readyState == 4 && xhr.status == 200) {
 						var response = JSON.parse(xhr.responseText);
-						document.getElementById("chat").innerHTML = ""
-						for (let i = 0; i < response.length; i++) {
-							const element = response[i];
-							document.getElementById("chat").innerHTML += "<p>" + element + "</p>"
-						}
+						reloadChat(response)
 					}
 					var objDiv = document.getElementById("chat");
 					objDiv.scrollTop = objDiv.scrollHeight;
