@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kryds og bolle</title>
+    <style>
+        button {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+</head>
+
+<body>
+
+    <tr>
+        <td><button class="button" onclick="play(this)" id="0">O</button></td>
+        <td><button class="button" onclick="play(this)" id="1">O</button></td>
+        <td><button class="button" onclick="play(this)" id="2"></button></td>
+    </tr>
+    <br>
+    <tr>
+        <td><button class="button" onclick="play(this)" id="3"></button></td>
+        <td><button class="button" onclick="play(this)" id="4"></button></td>
+        <td><button class="button" onclick="play(this)" id="5"></button></td>
+    </tr>
+    <br>
+    <tr>
+        <td><button class="button" onclick="play(this)" id="6"></button></td>
+        <td><button class="button" onclick="play(this)" id="7"></button></td>
+        <td><button class="button" onclick="play(this)" id="8"></button></td>
+    </tr>
+
+
+
+
+    <script>
+        function checkForWin() {
+            var win
+
+            if (document.getElementById(0).textContent == "O" && document.getElementById(1).textContent == "O" && document.getElementById(2).textContent == "O") win = "O"
+            if (document.getElementById(3).textContent == "O" && document.getElementById(4).textContent == "O" && document.getElementById(5).textContent == "O") win = "O"
+            if (document.getElementById(6).textContent == "O" && document.getElementById(7).textContent == "O" && document.getElementById(8).textContent == "O") win = "O"
+                //Horizontal O
+
+            if (document.getElementById(0).textContent == "O" && document.getElementById(3).textContent == "O" && document.getElementById(6).textContent == "O") win = "O"
+            if (document.getElementById(1).textContent == "O" && document.getElementById(4).textContent == "O" && document.getElementById(7).textContent == "O") win = "O"
+            if (document.getElementById(2).textContent == "O" && document.getElementById(5).textContent == "O" && document.getElementById(8).textContent == "O") win = "O"
+                //Vertikal O
+
+            if (document.getElementById(0).textContent == "O" && document.getElementById(4).textContent == "O" && document.getElementById(8).textContent == "O") win = "O"
+            if (document.getElementById(2).textContent == "O" && document.getElementById(4).textContent == "O" && document.getElementById(6).textContent == "O") win = "O"
+                //Diagonal O
+
+            if (document.getElementById(0).textContent == "X" && document.getElementById(1).textContent == "X" && document.getElementById(2).textContent == "X") win = "X"
+            if (document.getElementById(3).textContent == "X" && document.getElementById(4).textContent == "X" && document.getElementById(5).textContent == "X") win = "X"
+            if (document.getElementById(6).textContent == "X" && document.getElementById(7).textContent == "X" && document.getElementById(8).textContent == "X") win = "X"
+                //Horizontal X
+
+            if (document.getElementById(0).textContent == "X" && document.getElementById(3).textContent == "X" && document.getElementById(6).textContent == "X") win = "X"
+            if (document.getElementById(1).textContent == "X" && document.getElementById(4).textContent == "X" && document.getElementById(7).textContent == "X") win = "X"
+            if (document.getElementById(2).textContent == "X" && document.getElementById(5).textContent == "X" && document.getElementById(8).textContent == "X") win = "X"
+                //Vertikal X
+
+            if (document.getElementById(0).textContent == "X" && document.getElementById(4).textContent == "X" && document.getElementById(8).textContent == "X") win = "X"
+            if (document.getElementById(2).textContent == "X" && document.getElementById(4).textContent == "X" && document.getElementById(6).textContent == "X") win = "X"
+                //Diagonal X
+
+
+            if (win) {
+                return win
+            } else {
+                var x = 0
+                for (let i = 0; i <= 8; i++) {
+                    const element = document.getElementById(i).textContent;
+                    if (element != "") {
+                        x++
+                    }
+                }
+                if (x == 9) {
+                    return "draw"
+                } else {
+                    return "nowin"
+                }
+
+            }
+
+        }
+
+
+
+        function ai() {
+            var played = false
+            var x = 0
+            if (played == false) {
+                for (let i = 0; i <= 2; i++) {
+                    if (document.getElementById(i).textContent == "O") x++
+                }
+
+                if (x == 2) {
+                    for (let i = 0; i <= 2; i++) {
+                        if (document.getElementById(i).textContent == "" && played == false) {
+                            document.getElementById(i).textContent = "O"
+                            played = true
+                            break;
+                        }
+                    }
+                }
+            }
+            if (played == false) {
+                for (let i = 3; i <= 5; i++) {
+                    if (document.getElementById(i).textContent == "O") x++
+                }
+
+                if (x == 2) {
+                    for (let i = 0; i <= 2; i++) {
+                        if (document.getElementById(i).textContent == "" && played == false) {
+                            document.getElementById(i).textContent = "O"
+                            played = true
+                            break;
+                        }
+                    }
+                }
+            }
+            if (played == false) {
+                for (let i = 6; i <= 8; i++) {
+                    if (document.getElementById(i).textContent == "O") x++
+                }
+                if (x == 2) {
+                    for (let i = 0; i <= 2; i++) {
+                        if (document.getElementById(i).textContent == "" && played == false) {
+                            document.getElementById(i).textContent = "O"
+                            played = true
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        function play(el) {
+            if (!el.textContent) {
+                el.textContent = "X"
+                console.log(checkForWin())
+                ai()
+            }
+        }
+    </script>
+</body>
+
+</html>
